@@ -2,12 +2,11 @@
 
 **Keywords**: drift detection, time-series forecasting, model monitoring, MLOps, audit trail, reproducibility, accountability, electricity demand forecasting
 
-<img src="certificate-drift-audit-flow.png" width="600" alt="Certificate–Ledger–Verifier Flow">
+<img src="certificate-drift-audit-flow.png" width="600" alt="Raw data → deterministic audit → certificate → PASS/FAIL">
 
 **Protocol overview: Raw data → deterministic audit → certificate → PASS/FAIL.**
 
-Here, “drift” means an operational integrity breach (data/logic/config mismatch) that makes the verdict non-reproducible—not a statistical change optimized by post-hoc tuning.
-ai-drift-detector (Ghost Drift Audit v9.9) is a deterministic audit protocol for time-series operations. It binds inputs and logic to tamper-evident fingerprints, then outputs a reproducible certificate and an append-only ledger so any third party can re-run the same audit and obtain the same PASS/FAIL verdict.
+Here, “drift” means an operational integrity breach (data/logic/config mismatch) that makes the verdict non-reproducible—not a statistical change optimized by post-hoc tuning.ai-drift-detector  is a deterministic audit protocol for time-series operations. It binds inputs and logic to tamper-evident fingerprints, then outputs a reproducible certificate and an append-only ledger so any third party can re-run the same audit and obtain the same PASS/FAIL verdict.
 
 Note: Bundled CSVs are reproducibility datasets provided to verify the audit protocol. The system is designed with strict data binding; it will cease execution if the input integrity or logic identity does not match the predefined fingerprints.
 
@@ -27,7 +26,6 @@ Note: Bundled CSVs are reproducibility datasets provided to verify the audit pro
 
 - **Report:** [Scientific Audit Report on Structural Integrity of Forecasting Models](./Scientific%20Audit%20Report%20on%20Structural%20Integrity%20of%20Forecasting%20Models.pdf)
 - **Verdict:** NG (TAU_CAP_HIT)
-- **Protocol:** Ghost Drift Audit v8.0
 
 ---
 
@@ -79,7 +77,7 @@ Strictness is selected in `ai-drift-detector.py`.
 
 ### Configuration (ai-drift-detector.py)
 
-STRICT_AUDIT_MODE = True  # v9.9: Logic Identity + BOM resilience enabled
+STRICT_AUDIT_MODE = True  : Logic Identity + BOM resilience enabled
 
 
 ## 🚀 Deployment & Usage
