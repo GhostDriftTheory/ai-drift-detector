@@ -63,64 +63,67 @@ To address the “opaque inference” problem in conventional AI operations, thi
 ├── electric_load_weather.csv  # Input: Weather (dummy for smoke test)
 ├── power_usage.csv            # Input: Demand (dummy for smoke test)
 └── adic_out/                  # Output: Accountability Ledger
+
 ```
 
 ---
 
-⚙️ Execution Profiles
-Switch the strictness of the audit via the configuration settings in ai-drift-detector.py.
-・demo (Strictness: Low)
-　・Target: Protocol verification / learning.
-　・Key Features: Prioritizes understanding audit flow and evidence output.
-・paper (Strictness: Mid)
-　・Target: Research / reproducible experiments.
-　・Key Features: Ensures computational reproducibility via fixed seeds.
-・commercial (Strictness: High)
-　・Target: Production / High-stakes decision-making.
-　・Key Features: Produces strict gate checks including Logic/Source Identity verification.
-# Configuration within ai-drift-detector.py
-# v9.9 is pre-configured to handle Logic Identity and BOM Resilience.
-STRICT_AUDIT_MODE = True 
+## ⚙️ Execution Profiles
 
-🚀 Deployment & Usage
-1. Setup
+Strictness is selected in `ai-drift-detector.py`.
+
+- demo (Low): learn the protocol and output format
+- paper (Mid): reproducible experiments (fixed seeds)
+- commercial (High): production gates (Logic/Source identity checks)
+
+### Configuration (ai-drift-detector.py)
+
+STRICT_AUDIT_MODE = True  # v9.9: Logic Identity + BOM resilience enabled
+
+
+## 🚀 Deployment & Usage
+
+### 1) Setup
+
 pip install numpy pandas matplotlib
 
-2. Data Preparation
-Place the power_usage.csv and electric_load_weather.csv files in the same directory as the .py script.
-[!CAUTION]
-No Synthetic Fallback: The v9.9 engine prohibits falling back to dummy data in Strict Mode. Use the provided reproducibility datasets or your own audited datasets with valid headers.
+### 2) Data
 
-3. Run
+Place `power_usage.csv` and `electric_load_weather.csv` next to the `.py` script.
+
+[!CAUTION]
+Strict Mode has no synthetic fallback. Use the provided reproducibility datasets or your own audited datasets (valid headers required).
+
+### 3) Run
+
 python ai-drift-detector.py
 
-4. Verification (Outputs)
+### 4) Outputs
 
-📜 audit_record.json: The Certificate. A JSON snapshot of execution conditions and logic fingerprints.
-📑 audit_log.jsonl: The Ledger. An append-only hash chain recording the full processing history.
-📦 audit_bundle.zip: A self-contained package for independent verification.
-⚖️ Scope & Integrity (Non-claims)
-🎯 Scope & Limits
+- `audit_record.json` : certificate (execution conditions + logic fingerprints)
+- `audit_log.jsonl`   : append-only hash-chain ledger
+- `audit_bundle.zip`  : self-contained verification bundle
 
-Scope: Provides a mathematical framework (including Fejér–Yukawa kernel approaches) to make model behavior and structural shifts observable and verifiable.
-Non-claims: Does not guarantee zero future error or absolute "truth"; it guarantees the reproducibility of the audit process itself.
 
-🛡️ Threat Model (Tamper Detection)
+## 🎯 Scope & Limits
 
-Threshold manipulation: Detected via Certificate mismatch and signed Cap records.
-Logic manipulation: Detected via Logic Identity Proxy hash change.
-Data fabrication: Detected via Source Identity (SHA-256) fingerprinting.
+- Scope: makes structural shifts observable and verifiable (via the audit protocol)
+- Non-claims: does not guarantee future correctness; guarantees audit reproducibility
 
-📜 License & Acknowledgments
 
-Code: MIT License
-Reproducibility Data: Included for protocol verification.
+## 🛡️ Threat Model
 
-Patent Notice:
-This repository implements techniques related to a pending patent application.
-Japanese Patent Application No. 特願2025-182213.
-This notice does not restrict use of the open-source code under the MIT License.
+- Threshold manipulation: certificate mismatch / Cap record mismatch
+- Logic manipulation: Logic Identity Proxy hash change
+- Data fabrication: Source Identity (SHA-256) mismatch
+
+
+## 📜 License & Notice
+
+- Code: MIT License
+- Reproducibility data: included for protocol verification
+- Patent notice: pending JP application (特願2025-182213). MIT usage is unchanged.
+
 
 From “prediction” to “accountability.”
-This repository provides a practical reference implementation for certificate-based drift detection and accountable model monitoring.
-Produced by GhostDrift Mathematical Institute (GMI) — Official Website | Online Documentation
+GhostDrift Mathematical Institute (GMI)
