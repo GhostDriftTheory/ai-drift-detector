@@ -1,10 +1,10 @@
-Certificate-Based Drift Detection Audit for Time-Series Forecasting (Electricity Demand × Weather)
+**Certificate-Based Drift Detection Audit for Time-Series Forecasting (Electricity Demand × Weather)**
 
-Keywords: drift detection, time-series forecasting, model monitoring, MLOps, audit trail, reproducibility, accountability, electricity demand forecasting
+**Keywords**: drift detection, time-series forecasting, model monitoring, MLOps, audit trail, reproducibility, accountability, electricity demand forecasting
 
 <img src="certificate-drift-audit-flow.png" width="600" alt="Certificate–Ledger–Verifier Flow">
 
-Protocol overview: fixed certificate → append-only ledger → independent verifier (OK / NG).
+**Protocol overview: Raw data → deterministic audit → certificate → PASS/FAIL.**
 
 ai-drift-detector (Ghost Drift Audit v9.9) is a certificate-based audit engine designed to prioritize validity and accountability over mere statistical accuracy. Unlike conventional monitoring that relies on post-hoc threshold tuning, this engine outputs a verifiable certificate and an immutable ledger, allowing any third party to reproduce the exact audit verdict from the same inputs.
 
