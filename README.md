@@ -6,7 +6,8 @@
 
 **Protocol overview: Raw data → deterministic audit → certificate → PASS/FAIL.**
 
-Here, “drift” means an operational integrity breach (data/logic/config mismatch) that makes the verdict non-reproducible—not a statistical change optimized by post-hoc tuning.ai-drift-detector  is a deterministic audit protocol for time-series operations. It binds inputs and logic to tamper-evident fingerprints, then outputs a reproducible certificate and an append-only ledger so any third party can re-run the same audit and obtain the same PASS/FAIL verdict.
+Here, “drift” means an operational integrity breach (data/logic/config mismatch) that makes the verdict non-reproducible—not a statistical change optimized by post-hoc tuning.
+ai-drift-detector  is a deterministic audit protocol for time-series operations. It binds inputs and logic to tamper-evident fingerprints, then outputs a reproducible certificate and an append-only ledger so any third party can re-run the same audit and obtain the same PASS/FAIL verdict.
 
 Note: Bundled CSVs are reproducibility datasets provided to verify the audit protocol. The system is designed with strict data binding; it will cease execution if the input integrity or logic identity does not match the predefined fingerprints.
 
