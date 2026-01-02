@@ -49,67 +49,32 @@ Rather than claiming "perfect prediction," it makes visible the model’s faithf
 🛠 Technical Specifications
 
 System Requirements
+・Language: Python 3.10+
+・Dependencies: numpy, pandas, matplotlib (Calculations are performed via deterministic FFT/NumPy operations)
 
-Language: Python 3.10+
-
-Dependencies: numpy, pandas, matplotlib (Calculations are performed via deterministic FFT/NumPy operations)
-
-Project Structure
-
-.
+Project Structure.
 ├── ai-drift-detector.py       # Core Logic & Audit Engine (v9.9)
 ├── electric_load_weather.csv  # Reproducibility Data: Weather
 ├── power_usage.csv            # Reproducibility Data: Demand
 └── audit_bundle.zip           # Output: Accountability Artifacts (Certificate & Ledger)
-
-
 <a id="profile"></a>
 
 ⚙️ Execution Profiles
-
 Switch the strictness of the audit via the configuration settings in ai-drift-detector.py.
-
-Profile
-
-Use / Target
-
-Strictness
-
-Key Features
-
-demo
-
-Protocol verification
-
-Low
-
-Prioritizes understanding audit flow and evidence
-
-paper
-
-Research / reproducible experiments
-
-Mid
-
-Ensures computational reproducibility via fixed seeds
-
-commercial
-
-Production / High-stakes audit
-
-High
-
-Produces strict gate checks (Logic/Source Identity)
-
-How to Configure
-
+・demo (Strictness: Low)
+　・Target: Protocol verification / learning.
+　・Key Features: Prioritizes understanding audit flow and evidence output.
+・paper (Strictness: Mid)
+　・Target: Research / reproducible experiments.
+　・Key Features: Ensures computational reproducibility via fixed seeds.
+・commercial (Strictness: High)
+　・Target: Production / High-stakes decision-making.
+　・Key Features: Produces strict gate checks including Logic/Source Identity verification.
 # Configuration within ai-drift-detector.py
 # v9.9 is pre-configured to handle Logic Identity and BOM Resilience.
 STRICT_AUDIT_MODE = True 
 
-
 🚀 Deployment & Usage
-
 1. Setup
 pip install numpy pandas matplotlib
 
