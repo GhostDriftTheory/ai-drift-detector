@@ -16,7 +16,7 @@ Note: Bundled CSVs are reproducibility datasets provided to verify the audit pro
 🔗 Quick Links
 
 * 📂 **Source Code:** [GitHub Repository](https://github.com/GhostDriftTheory/ai-drift-detector)
-* 📜 **Main Script:** [ghost_drift_audit_EN.py](https://github.com/GhostDriftTheory/ai-drift-detector/blob/main/ai-drift-detector.py)
+* 📜 **Main Script:** [ai-drift-detector.py](https://github.com/GhostDriftTheory/ai-drift-detector/blob/main/ai-drift-detector.py)
 * 📦 **Download:** [Project ZIP](https://github.com/GhostDriftTheory/ai-drift-detector/archive/refs/heads/main.zip)
 * 📖 **Documentation:** [Online Manual](https://ghostdrifttheory.github.io/ai-drift-detector/) ([⚙️ Jump to Execution Mode](https://ghostdrifttheory.github.io/ai-drift-detector/#profile))
 * 🚨 **Support:** [Report Issues](https://github.com/GhostDriftTheory/ai-drift-detector/issues)
