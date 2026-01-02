@@ -1,19 +1,19 @@
 # ==============================================================================
-# Ghost Drift Audit v9.9 (Final Submission Quality)
+# Ghost Drift Audit v10.0 (Global Edition)
 # ==============================================================================
-# 【Concept】
-#  LightGBMや統計的推定を排し、決定論的な「Fejér-Yukawa核」と「FFT畳み込み」による
-#  純粋数学的アプローチでデータの構造を炙り出します。
+# [Concept]
+#  Eliminating LightGBM and statistical estimation, this script uses a deterministic
+#  "Fejér-Yukawa Kernel" and "FFT Convolution" to mathematically extract data structures.
 #
-# 【Features (All Integrated)】
-#  1. Strict Data Binding: 実データが見つからない場合は即時停止（合成データへのフォールバック禁止）。
-#  2. Source Identity: 入力ファイルのSHA256ハッシュ・サイズ・行数を監査ログに刻印。
-#  3. Logic Identity: 関数定義順に依存しない、ソート済みのロジックハッシュを記録。
-#  4. Tamper-Evident: JSONLハッシュチェーンとStrict JSONシリアライズによる完全な検証性。
-#  5. Cross-Run Chain: 既存のZIPからログ履歴を復元・追記し、単一ファイルで全履歴を証明。
-#  6. Scale-Invariant UWP: データの絶対値（桁）に依存しない正規化指標で厳格な判定を実現。
-#  7. Epsilon Guard: FFTの微小な数値誤差を構造的な負値と誤認しないためのガード。
-#  8. BOM Resilience: BOM付きCSVの列名を正規化し、日時列の認識漏れを完全防止。
+# [Features (All Integrated)]
+#  1. Strict Data Binding: Immediately aborts if real data is not found (no fallback to synthetic).
+#  2. Source Identity: Records SHA256 hash, size, and row count of the input file in the audit log.
+#  3. Logic Identity: Records a sorted logic hash independent of function definition order.
+#  4. Tamper-Evident: Verifiable via JSONL hash chain and Strict JSON serialization.
+#  5. Cross-Run Chain: Recovers log history from an existing ZIP and appends new records, proving full history with a single file.
+#  6. Scale-Invariant UWP: Strict judgment using normalized metrics independent of data magnitude (digits).
+#  7. Epsilon Guard: Guard against misidentifying tiny FFT numerical errors as structural negative values.
+#  8. BOM Resilience: Normalizes BOM-prefixed CSV column names to fully prevent datetime column misses.
 # ==============================================================================
 
 import os
@@ -597,7 +597,7 @@ def load_data_source(config: Dict[str, Any]) -> Tuple[np.ndarray, np.ndarray, Di
 # ==============================================================================
 
 def main():
-    print("--- FY-UWP Ghost Drift Audit v9.9 (Final Submission Quality) ---")
+    print("--- FY-UWP Ghost Drift Audit v10.0 (Global Edition) ---")
     
     # 0. Chain Preservation (Recover previous logs before overwriting)
     try:
@@ -728,7 +728,7 @@ def main():
     # In-thread record
     print("\n--- BEGIN_GITHUB_RECORD ---")
     print("```text")
-    print(f"Ghost Drift Audit v9.9 (Final Submission)")
+    print(f"Ghost Drift Audit v10.0 (Global Edition)")
     print(f"RunID(core): {rec['core_sha256']}")
     print(f"RecordSHA256: {rec['record_sha256']}")
     print(f"PrevSHA256: {rec.get('prev_record_sha256')}")
