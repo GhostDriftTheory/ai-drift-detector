@@ -64,6 +64,8 @@ To address the “opaque inference” problem in conventional AI operations, thi
 ├── power_usage.csv            # Input: Demand (dummy for smoke test)
 └── adic_out/                  # Output: Accountability Ledger
 
+---
+
 ⚙️ Execution Profiles
 Switch the strictness of the audit via the configuration settings in ai-drift-detector.py.
 ・demo (Strictness: Low)
