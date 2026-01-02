@@ -30,34 +30,39 @@ Note: Bundled CSVs are reproducibility datasets provided to verify the audit pro
 
 ---
 
-💎 Design Philosophy: From "Accuracy" to "Validity"
+## 💎 Design Philosophy: From "Probabilistic" to "Accountable"
 
-To address the “opaque inference” problem in conventional AI operations, this framework shifts the focus from probabilistic estimation to accountable verification.
+To address the “opaque inference” problem in conventional AI operations, this framework provides:
 
-[!TIP]
-Deterministic Audit
-The engine generates objectively verifiable evidence for third parties, ensuring that the same data and logic always yield the same verdict.
+> [!TIP]
+> **Audit-First Design**  
+> Alongside running predictions, it automatically generates objectively verifiable **evidence** for third parties.
 
-[!IMPORTANT]
-Tamper-evident Certificate
-It fixes SHA-256 fingerprints of both input data and the execution logic (Logic Identity Proxy), making any unauthorized modifications mathematically detectable.
+> [!IMPORTANT]
+> **Tamper-Evident Fingerprints**  
+> It fixes hash fingerprints of input data and configuration parameters, making post-hoc modifications mathematically detectable.
 
-[!NOTE]
-Operational Accountability
-Rather than claiming "perfect prediction," it makes visible the model’s faithful adherence to operational rules, such as structural fluctuation limits and physical constraints.
+> [!NOTE]
+> **Verifiable Integrity**  
+> Rather than mere statistical optimality, it makes visible the model’s **faithful adherence** to operational rules.
 
-🛠 Technical Specifications
+---
 
-System Requirements
-・Language: Python 3.10+
-・Dependencies: numpy, pandas, matplotlib (Calculations are performed via deterministic FFT/NumPy operations)
+## 🛠 Technical Specifications
 
-Project Structure.
-├── ai-drift-detector.py       # Core Logic & Audit Engine (v9.9)
-├── electric_load_weather.csv  # Reproducibility Data: Weather
-├── power_usage.csv            # Reproducibility Data: Demand
-└── audit_bundle.zip           # Output: Accountability Artifacts (Certificate & Ledger)
-<a id="profile"></a>
+### System Requirements
+
+- **Language:** Python 3.10+
+- **Dependencies:** numpy, pandas, matplotlib, lightgbm
+
+### Project Structure
+
+```text
+.
+├── ghost_drift_audit_JP.py    # Core Logic & Audit Engine
+├── electric_load_weather.csv  # Input: Weather (dummy for smoke test)
+├── power_usage.csv            # Input: Demand (dummy for smoke test)
+└── adic_out/                  # Output: Accountability Ledger
 
 ⚙️ Execution Profiles
 Switch the strictness of the audit via the configuration settings in ai-drift-detector.py.
