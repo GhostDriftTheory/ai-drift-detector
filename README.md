@@ -25,7 +25,7 @@ Note: Bundled CSVs are reproducibility datasets provided to verify the audit pro
 
 ## 📑 Audit Report (PDF)
 
-- **Report:** [Scientific Audit Report on Structural Integrity of Forecasting Models]([./Scientific%20Audit%20Report%20on%20Structural%20Integrity%20of%20Forecasting%20Models.pdf](https://github.com/GhostDriftTheory/ai-drift-detector/blob/df0d02695d31c2eb8c161a4b8fe6c778607ba645/Verification%20Report%20Third-Party%20Verifiable%20Compliance%20of%20Power%20Demand%20Data%20with%20Quality%20Constraints.pdf))
+- **Report:** [Scientific Audit Report on Structural Integrity of Forecasting Models]([https://github.com/GhostDriftTheory/ai-drift-detector/blob/df0d02695d31c2eb8c161a4b8fe6c778607ba645/Verification%20Report%20Third-Party%20Verifiable%20Compliance%20of%20Power%20Demand%20Data%20with%20Quality%20Constraints.pdf])
 - **Verdict:** NG (TAU_CAP_HIT)
 
 ---
