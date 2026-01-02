@@ -63,6 +63,7 @@ To address the “opaque inference” problem in conventional AI operations, thi
 ├── electric_load_weather.csv  # Input: Weather (dummy for smoke test)
 ├── power_usage.csv            # Input: Demand (dummy for smoke test)
 └── adic_out/                  # Output: Accountability Ledger
+```
 
 ---
 
