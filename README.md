@@ -1,245 +1,153 @@
-# Jung Boundary Accountability
-**Jung as a Boundary: Psychological Accountability When Meaning Is Committed**  
-— *Ghost Drift: Disagreement Cannot Dissolve Responsibility*
+Certificate-Based Drift Detection Audit for Time-Series Forecasting (Electricity Demand × Weather)
 
-> **Victory Condition (fixed):**  
-> It must be impossible to say: “Different interpretations exist, therefore nobody is responsible.”  
-> Under this protocol, disagreement can only do one of the following:
-> 1) **Commit an alternative boundary** and inherit responsibility, or  
-> 2) **Remain unbounded** and be logged as such—without dissolving the original responsibility surface.
+Keywords: drift detection, time-series forecasting, model monitoring, MLOps, audit trail, reproducibility, accountability, electricity demand forecasting
 
----
+<img src="certificate-drift-audit-flow.png" width="600" alt="Certificate–Ledger–Verifier Flow">
 
-## What this repository is
-This repo is the public artifact for a **Jung-first humanities revival** that refuses the standard escape hatches:
+Protocol overview: fixed certificate → append-only ledger → independent verifier (OK / NG).
 
-- “It’s just interpretation.”
-- “That’s only metaphor.”
-- “Criteria changed after the fact.”
+ai-drift-detector (Ghost Drift Audit v9.9) is a certificate-based audit engine designed to prioritize validity and accountability over mere statistical accuracy. Unlike conventional monitoring that relies on post-hoc threshold tuning, this engine outputs a verifiable certificate and an immutable ledger, allowing any third party to reproduce the exact audit verdict from the same inputs.
 
-Instead of trying to “win” as a natural science paper, the goal here is stricter:
-
-**Make meaning non-retroactive.**  
-If meaning is invoked to justify a decision, it must be **committed to a boundary**—scope, assumptions, checks, and failure conditions—so responsibility cannot evaporate afterward.
-
-Jung is used **as a labeling vocabulary for escape patterns** (projection, rationalization, shadow-avoidance, individuation-as-owning meaning), not as the causal proof.  
-The irreversibility is enforced by **commit / ledger / rebuttal protocol**.
+Note: Bundled CSVs are reproducibility datasets provided to verify the audit protocol. The system is designed with strict data binding; it will cease execution if the input integrity or logic identity does not match the predefined fingerprints.
 
 ---
 
-## The core idea (one paragraph)
-In institutions and AI deployments, responsibility often evaporates because evaluation criteria can be rewritten after outcomes (“correct under the criteria at the time”). This project defines an accountability mechanism where meaning becomes binding only when it is committed to an explicit boundary. Once committed, any rebuttal must either (a) propose an alternative committed boundary and inherit responsibility, or (b) remain recorded as unbounded objection that cannot dissolve the original responsibility surface. Under this rule, “interpretation” stops functioning as a projection screen and becomes owned meaning.
+🔗 Quick Links
+
+* 📂 **Source Code:** [GitHub Repository](https://github.com/GhostDriftTheory/ai-drift-detector)
+* 📜 **Main Script:** [ghost_drift_audit_EN.py](https://github.com/GhostDriftTheory/ai-drift-detector/blob/main/ai-drift-detector.py)
+* 📦 **Download:** [Project ZIP](https://github.com/GhostDriftTheory/ai-drift-detector/archive/refs/heads/main.zip)
+* 📖 **Documentation:** [Online Manual](https://ghostdrifttheory.github.io/ai-drift-detector/) ([⚙️ Jump to Execution Mode](https://ghostdrifttheory.github.io/ai-drift-detector/#profile))
+* 🚨 **Support:** [Report Issues](https://github.com/GhostDriftTheory/ai-drift-detector/issues)
 
 ---
 
-## What is “Jung-first” here
-Most “humanities x AI” projects begin with *Humanities* and use Jung as an example. This project does the opposite:
+## 📑 Audit Report (PDF)
 
-- **Jung is the entry point (the nucleus).**
-- The paper and protocol treat Jungian mechanisms as **where agency hides** when responsibility is avoided.
-- The system-level fix is not “better interpretation,” but **bounded commitment**.
-
-This is not “therapy content.”  
-This is **accountability engineering for meaning**.
+- **Report:** [Scientific Audit Report on Structural Integrity of Forecasting Models](./Scientific%20Audit%20Report%20on%20Structural%20Integrity%20of%20Forecasting%20Models.pdf)
+- **Verdict:** NG (TAU_CAP_HIT)
+- **Protocol:** Ghost Drift Audit v8.0
 
 ---
 
-## Protocol summary (the non-escape structure)
+💎 Design Philosophy: From "Accuracy" to "Validity"
 
-### 1) Boundary Packet (BP)
-A **Boundary Packet** is the minimal unit that makes meaning binding.
+To address the “opaque inference” problem in conventional AI operations, this framework shifts the focus from probabilistic estimation to accountable verification.
 
-It explicitly contains:
-- **Objective** (what decision/output is for)
-- **Scope** (what is included/excluded)
-- **Constraints** (time, resources, audience, deployment context)
-- **Assumptions** (what is presumed true)
-- **Checks** (how falsification happens)
-- **PASS/FAIL definition** (or responsibility triggers if PASS/FAIL is impossible)
-- **Stakes** (decision_owner, time_horizon, harm_model)
+[!TIP]
+Deterministic Audit
+The engine generates objectively verifiable evidence for third parties, ensuring that the same data and logic always yield the same verdict.
 
-A BP is **canonicalized** and hashed into a **BP_commit**.
+[!IMPORTANT]
+Tamper-evident Certificate
+It fixes SHA-256 fingerprints of both input data and the execution logic (Logic Identity Proxy), making any unauthorized modifications mathematically detectable.
 
-### 2) Response Packet (RP)
-A **Response Packet** binds an output to a BP_commit, including:
-- the input text,
-- the output text,
-- the claimed assumptions vs claims separation,
-- the check hooks / evaluation results (if applicable),
-- the execution metadata (model/version/runtime).
+[!NOTE]
+Operational Accountability
+Rather than claiming "perfect prediction," it makes visible the model’s faithful adherence to operational rules, such as structural fluctuation limits and physical constraints.
 
-It is canonicalized and hashed into an **RP_commit**.
+🛠 Technical Specifications
 
-### 3) Ledger (append-only)
-A ledger is an append-only chain of rows that binds:
-- BP_commit,
-- RP_commit,
-- row_commit linkage,
-- head_commit.
+System Requirements
 
-This is the mechanism that makes “later reinterpretation” expensive and auditable.
+Language: Python 3.10+
 
-### 4) Rebuttal Protocol (the key “no escape” move)
-To disagree with a committed boundary/output, a critic must choose:
+Dependencies: numpy, pandas, matplotlib (Calculations are performed via deterministic FFT/NumPy operations)
 
-**A. Alternative Boundary (responsibility inheritance):**  
-Provide BP_alt (their own boundary), produce BP_alt_commit, and accept that responsibility now attaches to that boundary.
+Project Structure
 
-**B. Unbounded Objection (logged but non-dissolving):**  
-State the objection without a committed boundary; it is recorded as **unbounded** and cannot dissolve the original BP_commit’s responsibility surface.
+.
+├── ai-drift-detector.py       # Core Logic & Audit Engine (v9.9)
+├── electric_load_weather.csv  # Reproducibility Data: Weather
+├── power_usage.csv            # Reproducibility Data: Demand
+└── audit_bundle.zip           # Output: Accountability Artifacts (Certificate & Ledger)
 
-This is the formal answer to:  
-“Different interpretations exist, therefore nobody is responsible.”
 
----
+<a id="profile"></a>
 
-## Minimal schemas (human-readable)
+⚙️ Execution Profiles
 
-### Boundary Packet (BP) – minimal fields
-```json
-{
-  "bp_version": "1.0",
-  "objective": "...",
-  "scope": { "in": ["..."], "out": ["..."] },
-  "constraints": { "time": "...", "resources": "...", "audience": "..." },
-  "assumptions": ["...", "..."],
-  "checks": [
-    { "id": "C1", "description": "...", "method": "...", "fail_condition": "..." }
-  ],
-  "pass_fail": { "pass_if": "...", "fail_if": "..." },
-  "stakes": { "decision_owner": "...", "time_horizon": "...", "harm_model": "..." },
-  "prev_commit": null,
-  "witness": { "type": "optional", "ref": "optional" }
-}
-```
+Switch the strictness of the audit via the configuration settings in ai-drift-detector.py.
 
-### Response Packet (RP) – minimal fields
-```json
-{
-  "rp_version": "1.0",
-  "bp_commit": "sha256:...",
-  "input": "...",
-  "output": "...",
-  "claims": ["...", "..."],
-  "supports": ["...", "..."],
-  "assumptions_used": ["...", "..."],
-  "checks_eval": [
-    { "id": "C1", "result": "PASS|FAIL|NA", "notes": "..." }
-  ],
-  "runtime": { "model": "...", "date": "...", "env": "..." }
-}
-```
+Profile
 
-### Ledger row – minimal fields
-```json
-{
-  "row_id": 12,
-  "bp_commit": "sha256:...",
-  "rp_commit": "sha256:...",
-  "prev_row_commit": "sha256:...",
-  "row_commit": "sha256:..."
-}
-```
+Use / Target
 
----
+Strictness
 
-## Reproducibility: what “evidence” means here
-This project treats “evidence” as **non-retroactive artifacts**, not persuasion.
+Key Features
 
-### Evaluation protocol (QSI/ATS/ΔATS)
-- Use matched prompt pairs:
-  - **LS** (low structure) vs **HS** (high structure)
-  - Include **Negative Controls** (style/length without boundary binding)
-  - Include **Failure Cases** (moving target, refusal of commitments, unauditable goals)
-- Score responses with:
-  - **QSI** (question structure)
-  - **ATS** (accountability traceability)
-- Report:
-  - **ΔATS = ATS(HS) − ATS(LS)**
-  - And ensure NC does not rise comparably
+demo
 
-**Important:** ATS is not “quality.” It is whether the output is auditable without rewriting criteria.
+Protocol verification
 
----
+Low
 
-## Non-retroactivity: what actually makes it hard
-A ledger is only as hard as its anchoring.
+Prioritizes understanding audit flow and evidence
 
-This repo uses a two-layer stance:
+paper
 
-1) **Local non-retroactivity (baseline):**
-- canonicalization + commits (BP_commit/RP_commit)
-- append-only row commits
-- consistent head_commit storage
+Research / reproducible experiments
 
-2) **Third-party non-retroactivity (when required):**
-- anchor ledger head externally (witnessing) so a single operator cannot rewrite history undetected.
+Mid
 
-Common anchoring options (choose based on your threat model):
-- signed commits/tags + release artifacts
-- mirrored repository hosting
-- time-stamped witness references (any independent mechanism you can cite)
+Ensures computational reproducibility via fixed seeds
 
-This is not “perfect security.”  
-It is the minimum structure needed so that “criteria changed” becomes audit-visible.
+commercial
 
----
+Production / High-stakes audit
 
-## Repo layout (recommended)
-- `paper/` — main paper (HTML/PDF)
-- `supplementary/` — S1/S2 case materials and figures
-- `prompt_sets/` — LS/HS/NC/FC matched prompts
-- `rubric/` — QSI/ATS scoring sheets
-- `schema/` — BP/RP/Ledger schemas (json)
-- `examples/` — sample BP, RP, ledger rows, and a head_commit example
-- `figures/` — diagrams used in the paper
-- `notes/` — design notes / limitations / threat model
+High
 
----
+Produces strict gate checks (Logic/Source Identity)
 
-## How to participate (the “no escape” contribution rules)
-### If you want to rebut the paper’s claim
-Choose one:
+How to Configure
 
-**A) Boundary rebuttal (inherits responsibility)**
-- Submit a BP_alt (your boundary packet)
-- Provide BP_alt_commit
-- Explain how your checks would evaluate PASS/FAIL (or responsibility triggers)
+# Configuration within ai-drift-detector.py
+# v9.9 is pre-configured to handle Logic Identity and BOM Resilience.
+STRICT_AUDIT_MODE = True 
 
-**B) Unbounded objection (logged)**
-- Submit an objection without a BP_alt_commit
-- It will be recorded as “unbounded” and treated as non-dissolving critique
 
-This is the project’s central move: criticism is welcomed, but it cannot erase responsibility without committing to its own boundary.
+🚀 Deployment & Usage
 
----
+1. Setup
+pip install numpy pandas matplotlib
 
-## Limitations (fixed, not hidden)
-- This is not a claim that Jungian concepts are “scientifically proven” in the natural-science sense.
-- Jung is used as a **labeling vocabulary** for responsibility-avoidance patterns.
-- The hardness comes from **commit + ledger + rebuttal protocol**, not from interpretation.
-- Third-party non-retroactivity depends on the chosen witness/anchoring mechanism.
+2. Data Preparation
+Place the power_usage.csv and electric_load_weather.csv files in the same directory as the .py script.
+[!CAUTION]
+No Synthetic Fallback: The v9.9 engine prohibits falling back to dummy data in Strict Mode. Use the provided reproducibility datasets or your own audited datasets with valid headers.
 
-These limitations are explicit by design: they prevent “interpretation drift” from being used as a retrofit escape.
+3. Run
+python ai-drift-detector.py
 
----
+4. Verification (Outputs)
 
-## Citation (repository)
-If you reference this work, cite the repository and the committed release/tag you used.
+📜 audit_record.json: The Certificate. A JSON snapshot of execution conditions and logic fingerprints.
+📑 audit_log.jsonl: The Ledger. An append-only hash chain recording the full processing history.
+📦 audit_bundle.zip: A self-contained package for independent verification.
+⚖️ Scope & Integrity (Non-claims)
+🎯 Scope & Limits
 
-```bibtex
-@misc{jung_boundary_accountability_2025,
-  title        = {Jung Boundary Accountability: Non-Retroactive Accountability for Meaning},
-  author       = {Manny and GhostDrift Mathematical Institute},
-  year         = {2025},
-  howpublished = {GitHub repository (commit/tag pinned)},
-  note         = {URL: https://ghostdrifttheory.github.io/jung-boundary-accountability/}
-}
-```
+Scope: Provides a mathematical framework (including Fejér–Yukawa kernel approaches) to make model behavior and structural shifts observable and verifiable.
+Non-claims: Does not guarantee zero future error or absolute "truth"; it guarantees the reproducibility of the audit process itself.
 
----
+🛡️ Threat Model (Tamper Detection)
 
-## License
-Choose a license that matches your intended reuse (e.g., CC BY for text, MIT/Apache-2.0 for code).  
-If you want maximum adoption for protocols and tooling, permissive licenses are usually aligned with that goal.
+Threshold manipulation: Detected via Certificate mismatch and signed Cap records.
+Logic manipulation: Detected via Logic Identity Proxy hash change.
+Data fabrication: Detected via Source Identity (SHA-256) fingerprinting.
 
+📜 License & Acknowledgments
+
+Code: MIT License
+Reproducibility Data: Included for protocol verification.
+
+Patent Notice:
+This repository implements techniques related to a pending patent application.
+Japanese Patent Application No. 特願2025-182213.
+This notice does not restrict use of the open-source code under the MIT License.
+
+From “prediction” to “accountability.”
+This repository provides a practical reference implementation for certificate-based drift detection and accountable model monitoring.
+Produced by GhostDrift Mathematical Institute (GMI) — Official Website | Online Documentation
