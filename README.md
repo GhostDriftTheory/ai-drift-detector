@@ -120,8 +120,6 @@ python ai-drift-detector.py
 
 ## 📜 License & Notice
 
-- Code: MIT License
-- Reproducibility data: included for protocol verification
 - Patent notice: pending JP application (特願2025-182213). MIT usage is unchanged.
 
 
