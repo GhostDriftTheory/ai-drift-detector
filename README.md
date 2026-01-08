@@ -119,7 +119,11 @@ python ai-drift-detector.py
 
 
 ## 📜 License & Notice
-
+© 2026 GhostDrift Mathematical Institute.  
+This version is released under a custom license:  
+- Research and evaluation use: permitted without charge  
+- Commercial use: requires explicit license from GhostDrift Mathematical Institute  
+- All other uses: prohibited without permission  
 - Patent notice: pending JP application (特願2025-182213). MIT usage is unchanged.
 
 
